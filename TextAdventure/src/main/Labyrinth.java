@@ -31,27 +31,27 @@ public class Labyrinth {
 		guiController.setDiscription(currentRoom);
 		
 		if(currentRoom.getEastRoom() == null) {
-			guiController.buttonEast.setDisable(true);
+			guiController.getButtonEast().setDisable(true);
 		} else {
-			guiController.buttonEast.setDisable(false);
+			guiController.getButtonEast().setDisable(false);
 		}
 		
 		if(currentRoom.getSouthRoom() == null) {
-			guiController.buttonSouth.setDisable(true);
+			guiController.getButtonSouth().setDisable(true);
 		} else {
-			guiController.buttonSouth.setDisable(false);
+			guiController.getButtonSouth().setDisable(false);
 		}
 		
 		if(currentRoom.getWestRoom() == null) {
-			guiController.buttonWest.setDisable(true);
+			guiController.getButtonWest().setDisable(true);
 		} else {
-			guiController.buttonWest.setDisable(false);
+			guiController.getButtonWest().setDisable(false);
 		}
 		
 		if(currentRoom.getNorthRoom() == null) {
-			guiController.buttonNorth.setDisable(true);
+			guiController.getButtonNorth().setDisable(true);
 		} else {
-			guiController.buttonNorth.setDisable(false);
+			guiController.getButtonNorth().setDisable(false);
 		}
 	}
 	
