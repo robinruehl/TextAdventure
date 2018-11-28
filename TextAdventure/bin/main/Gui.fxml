@@ -1,28 +1,125 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.GuiController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.GuiController">
    <children>
-      <Button fx:id="buttonNorth" layoutX="272.0" layoutY="87.0" mnemonicParsing="false" onAction="#goNorth" text="Norden" />
-      <Button fx:id="buttonEast" layoutX="509.0" layoutY="188.0" mnemonicParsing="false" onAction="#goEast" text="Osten" />
-      <Button fx:id="buttonSouth" layoutX="276.0" layoutY="304.0" mnemonicParsing="false" onAction="#goSouth" text="Süden" />
-      <Button fx:id="buttonWest" layoutX="28.0" layoutY="188.0" mnemonicParsing="false" onAction="#goWest" text="Westen" />
-      <ScrollPane fx:id="consoleTextScrollPane" layoutX="99.0" layoutY="112.0" pannable="true" prefHeight="153.0" prefWidth="403.0" vbarPolicy="ALWAYS">
-         <content>
-            <TitledPane fx:id="ConsolePane" alignment="TOP_LEFT" animated="false" contentDisplay="TOP" prefHeight="153.0" prefWidth="164.0" text="Console">
+      <TabPane prefHeight="750.0" prefWidth="1000.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Main">
                <content>
-                  <Text fx:id="consoleText" strokeType="OUTSIDE" strokeWidth="0.0" text="test" wrappingWidth="382.0" />
+                  <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0">
+                     <children>
+                        <Button fx:id="buttonNorth" layoutX="272.0" layoutY="87.0" mnemonicParsing="false" onAction="#goNorth" text="Norden" />
+                        <Button fx:id="buttonEast" layoutX="509.0" layoutY="188.0" mnemonicParsing="false" onAction="#goEast" text="Osten" />
+                        <Button fx:id="buttonSouth" layoutX="276.0" layoutY="304.0" mnemonicParsing="false" onAction="#goSouth" text="Süden" />
+                        <Button fx:id="buttonWest" layoutX="28.0" layoutY="188.0" mnemonicParsing="false" onAction="#goWest" text="Westen" />
+                        <ScrollPane fx:id="consoleTextScrollPane" layoutX="99.0" layoutY="112.0" pannable="true" prefHeight="153.0" prefWidth="403.0" vbarPolicy="ALWAYS">
+                           <content>
+                              <TitledPane fx:id="ConsolePane" alignment="TOP_LEFT" animated="false" contentDisplay="TOP" prefHeight="153.0" prefWidth="164.0" text="Console">
+                                 <content>
+                                    <Text fx:id="consoleText" strokeType="OUTSIDE" strokeWidth="0.0" text="test" wrappingWidth="382.0" />
+                                 </content>
+                              </TitledPane>
+                           </content>
+                        </ScrollPane>
+                        <TextField fx:id="consoleinp" layoutX="99.0" layoutY="272.0" prefHeight="25.0" prefWidth="332.0" promptText="Console" />
+                        <Button fx:id="buttonEnter" layoutX="439.0" layoutY="272.0" mnemonicParsing="false" onAction="#newInput" prefHeight="25.0" prefWidth="63.0" text="Eingabe" />
+                     </children>
+                  </AnchorPane>
+               </content></Tab>
+          <Tab text="Character">
+               <content>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="50.0" layoutY="200.0" text="maxHealth" />
+                        <Label layoutX="50.0" layoutY="250.0" text="attack" />
+                        <Label layoutX="50.0" layoutY="300.0" text="accuracy" />
+                        <Label layoutX="50.0" layoutY="400.0" text="luck" />
+                        <Label layoutX="50.0" layoutY="350.0" text="intelligence" />
+                        <Button fx:id="increaseAttack" layoutX="300.0" layoutY="250.0" mnemonicParsing="false" text="+" />
+                        <Button fx:id="increaseMaxHealth" layoutX="300.0" layoutY="200.0" mnemonicParsing="false" text="+" />
+                        <Button fx:id="increaseLuck" layoutX="300.0" layoutY="400.0" mnemonicParsing="false" text="+" />
+                        <Button fx:id="increaseIntelligence" layoutX="300.0" layoutY="350.0" mnemonicParsing="false" text="+" />
+                        <Button fx:id="increaseAccuracy" layoutX="300.0" layoutY="300.0" mnemonicParsing="false" text="+" />
+                        <TextField fx:id="maxHealthPoints" editable="false" layoutX="150.0" layoutY="200.0" prefHeight="25.0" prefWidth="50.0" />
+                        <TextField fx:id="attackPoints" editable="false" layoutX="150.0" layoutY="250.0" prefHeight="25.0" prefWidth="50.0" />
+                        <TextField fx:id="accuracyPoints" editable="false" layoutX="150.0" layoutY="300.0" prefHeight="25.0" prefWidth="50.0" />
+                        <TextField fx:id="intelligencePoints" editable="false" layoutX="150.0" layoutY="350.0" prefHeight="25.0" prefWidth="50.0" />
+                        <TextField fx:id="luckPoints" editable="false" layoutX="150.0" layoutY="400.0" prefHeight="25.0" prefWidth="50.0" />
+                        <Label layoutX="50.0" layoutY="500.0" text="Skillpoints" />
+                        <TextField fx:id="skillPoints" editable="false" layoutX="150.0" layoutY="500.0" prefHeight="25.0" prefWidth="50.0" />
+                        <TextField fx:id="maxHealthValue" layoutX="225.0" layoutY="200.0" prefHeight="25.0" prefWidth="50.0" />
+                        <TextField fx:id="luckValue" layoutX="225.0" layoutY="400.0" prefHeight="25.0" prefWidth="50.0" />
+                        <TextField fx:id="accuracyValue" layoutX="225.0" layoutY="300.0" prefHeight="25.0" prefWidth="50.0" />
+                        <TextField fx:id="intelligenceValue" layoutX="225.0" layoutY="350.0" prefHeight="25.0" prefWidth="50.0" />
+                        <TextField fx:id="attackValue" layoutX="225.0" layoutY="250.0" prefHeight="25.0" prefWidth="50.0" />
+                     </children>
+                  </AnchorPane>
                </content>
-            </TitledPane>
-         </content>
-      </ScrollPane>
-      <TextField fx:id="consoleinp" layoutX="99.0" layoutY="272.0" prefHeight="25.0" prefWidth="332.0" promptText="Console" />
-      <Button fx:id="buttonEnter" layoutX="439.0" layoutY="272.0" mnemonicParsing="false" onAction="#newInput" prefHeight="25.0" prefWidth="63.0" text="Eingabe" />
+          </Tab>
+            <Tab text="Inventory">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="slot1" layoutX="190.0" layoutY="300.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="E" />
+                        <Button fx:id="slot39" layoutX="510.0" layoutY="420.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="E" />
+                        <Button fx:id="slot38" layoutX="470.0" layoutY="420.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="E" />
+                        <Button fx:id="slot37" layoutX="430.0" layoutY="420.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="E" />
+                        <Button fx:id="slot36" layoutX="390.0" layoutY="420.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="E" />
+                        <Button fx:id="slot35" layoutX="350.0" layoutY="420.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="E" />
+                        <Button fx:id="slot34" layoutX="310.0" layoutY="420.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="E" />
+                        <Button fx:id="slot33" layoutX="270.0" layoutY="420.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="E" />
+                        <Button fx:id="slot32" layoutX="230.0" layoutY="420.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="E" />
+                        <Button fx:id="slot31" layoutX="190.0" layoutY="420.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="E" />
+                        <Button fx:id="slot30" layoutX="150.0" layoutY="420.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="E" />
+                        <Button fx:id="slot29" layoutX="510.0" layoutY="380.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="E" />
+                        <Button fx:id="slot28" layoutX="470.0" layoutY="380.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="E" />
+                        <Button fx:id="slot27" layoutX="430.0" layoutY="380.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="E" />
+                        <Button fx:id="slot26" layoutX="390.0" layoutY="380.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="E" />
+                        <Button fx:id="slot25" layoutX="350.0" layoutY="380.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="E" />
+                        <Button fx:id="slot24" layoutX="310.0" layoutY="380.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="E" />
+                        <Button fx:id="slot23" layoutX="270.0" layoutY="380.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="E" />
+                        <Button fx:id="slot22" layoutX="230.0" layoutY="380.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="E" />
+                        <Button fx:id="slot21" layoutX="190.0" layoutY="380.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="E" />
+                        <Button fx:id="slot20" layoutX="150.0" layoutY="380.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="E" />
+                        <Button fx:id="slot19" layoutX="510.0" layoutY="340.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="E" />
+                        <Button fx:id="slot18" layoutX="470.0" layoutY="340.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="E" />
+                        <Button fx:id="slot17" layoutX="430.0" layoutY="340.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="E" />
+                        <Button fx:id="slot16" layoutX="390.0" layoutY="340.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="E" />
+                        <Button fx:id="slot15" layoutX="350.0" layoutY="340.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="E" />
+                        <Button fx:id="slot14" layoutX="310.0" layoutY="340.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="E" />
+                        <Button fx:id="slot13" layoutX="270.0" layoutY="340.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="E" />
+                        <Button fx:id="slot12" layoutX="230.0" layoutY="340.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="E" />
+                        <Button fx:id="slot11" layoutX="190.0" layoutY="340.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="E" />
+                        <Button fx:id="slot10" layoutX="150.0" layoutY="340.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="E" />
+                        <Button fx:id="slot9" layoutX="510.0" layoutY="300.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="E" />
+                        <Button fx:id="slot8" layoutX="470.0" layoutY="300.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="E" />
+                        <Button fx:id="slot7" layoutX="430.0" layoutY="300.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="E" />
+                        <Button fx:id="slot6" layoutX="390.0" layoutY="300.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="E" />
+                        <Button fx:id="slot5" layoutX="350.0" layoutY="300.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="E" />
+                        <Button fx:id="slot4" layoutX="310.0" layoutY="300.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="E" />
+                        <Button fx:id="slot3" layoutX="270.0" layoutY="300.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="E" />
+                        <Button fx:id="slot2" layoutX="230.0" layoutY="300.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="E" />
+                        <Button fx:id="slot0" layoutX="150.0" layoutY="300.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="E" />
+                        <Button fx:id="slotWeapon" layoutX="250.0" layoutY="200.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="W" />
+                        <Button fx:id="slotArmor" layoutX="330.0" layoutY="200.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="A" />
+                        <Button fx:id="slotConsumable" layoutX="410.0" layoutY="200.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="C" />
+                        <Button fx:id="moveItem" layoutX="605.0" layoutY="308.0" mnemonicParsing="false" text="Move Item" />
+                        <Button fx:id="inpectItem" layoutX="605.0" layoutY="348.0" mnemonicParsing="false" text="Inspect" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
    </children>
 </AnchorPane>
