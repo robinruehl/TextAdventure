@@ -9,17 +9,16 @@ import javafx.scene.control.TitledPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
-import main.Fights.Fights;
-import main.Game.Game;
 
 public class GuiController {
-	Game game;
+	Labyrinth labyrinth;
 	
 	@FXML 
 	private GridPane inventoryPane;
 	
 	
-
+	
+	
 	@FXML
     private AnchorPane main;
 	
@@ -58,13 +57,69 @@ public class GuiController {
     
     boolean scrollbarListener = false;
     
+    
+    
+    @FXML
+    private TextField maxHealthPoints;
+    
+    @FXML
+    private TextField maxHealth;
+    
+    @FXML
+    private Button increaseMaxHealth;
+    
+    @FXML
+    private TextField attackPoints;
+    
+    @FXML
+    private TextField attackValue;
+    
+    @FXML
+    private Button increaseAttack;
+    
+    @FXML
+    private TextField accuracyPoints;
+    
+    @FXML
+    private TextField accuracyValue;
+    
+    @FXML
+    private Button increaseAccuracy;
+    
+    @FXML
+    private TextField intelligencePoints;
+    
+    @FXML
+    private TextField intelligenceValue;
+    
+    @FXML
+    private Button increaseIntelligence;
+    
+    @FXML
+    private TextField luckPoints;
+    
+    @FXML
+    private TextField luckValue;
+    
+    @FXML
+    private Button increaseLuck;
+    
+    @FXML 
+    private TextField perkPoint;
+    
+    @FXML
+    private TextField level;
+    
 	public void initialize() {
-		game = new Game(this);
+		labyrinth = new Labyrinth(this);
 		for (int i=1 ; i<=4 ; i++) {
 			for (int  p=1 ; p<=10 ; p++) {
 			Button button = new Button();
+			button.setPrefHeight(40);
+			button.setPrefWidth(40);
 			inventoryPane.add(button , p , i);
 			button.setOnAction(null);	
+			button.setOnTouchMoved(null);
 			}
 		}
 	}
@@ -75,20 +130,20 @@ public class GuiController {
 	}
 	
 	public void goEast() {
-		game.getLabyrinth().changeRoom(game.getLabyrinth().getCurrentRoom().getEastRoom());
+		labyrinth.changeRoom(labyrinth.getCurrentRoom().getEastRoom());
 	}
 	
 	public void goSouth() {
-		game.getLabyrinth().changeRoom(game.getLabyrinth().getCurrentRoom().getSouthRoom());
+		labyrinth.changeRoom(labyrinth.getCurrentRoom().getSouthRoom());
 	}
 	
 	public void goWest() { 
-		game.getLabyrinth().changeRoom(game.getLabyrinth().getCurrentRoom().getWestRoom());
+		labyrinth.changeRoom(labyrinth.getCurrentRoom().getWestRoom());
 
 	}
 	
 	public void goNorth() {
-		game.getLabyrinth().changeRoom(game.getLabyrinth().getCurrentRoom().getNorthRoom());
+		labyrinth.changeRoom(labyrinth.getCurrentRoom().getNorthRoom());
 
 	}
 	
@@ -131,28 +186,12 @@ public class GuiController {
 			inputHandler(inputTXT);	  //und leiten ihn zum (sehr billigen, nicht genuzten)Handler weiter.
 		}
 	}
-
-	private void inputHandler(String i)
-	{
-		//test
-		if(i.contains("test"))
-		{
-			if(i.contains("Fights"))
-			{
-				Fights f = new Fights(this, game.getLabyrinth().getCurrentRoom());
-				f.Fight();
-			}
-		}
-		//fights
-		if(i.contains("fight"))
-		{
-			if(i.contains("attack1"))
-			{
-				
-			}
-		}
-	}
 	
+	private void inputHandler(String inputTXT)
+	{
+		
+	}
+
 	public Button getButtonEast() {
 		return buttonEast;
 	}
