@@ -8,9 +8,6 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.GuiController">
@@ -73,19 +70,51 @@
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
+                        <Button fx:id="slot1" layoutX="190.0" layoutY="300.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="E" />
+                        <Button fx:id="slot39" layoutX="510.0" layoutY="420.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="E" />
+                        <Button fx:id="slot38" layoutX="470.0" layoutY="420.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="E" />
+                        <Button fx:id="slot37" layoutX="430.0" layoutY="420.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="E" />
+                        <Button fx:id="slot36" layoutX="390.0" layoutY="420.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="E" />
+                        <Button fx:id="slot35" layoutX="350.0" layoutY="420.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="E" />
+                        <Button fx:id="slot34" layoutX="310.0" layoutY="420.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="E" />
+                        <Button fx:id="slot33" layoutX="270.0" layoutY="420.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="E" />
+                        <Button fx:id="slot32" layoutX="230.0" layoutY="420.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="E" />
+                        <Button fx:id="slot31" layoutX="190.0" layoutY="420.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="E" />
+                        <Button fx:id="slot30" layoutX="150.0" layoutY="420.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="E" />
+                        <Button fx:id="slot29" layoutX="510.0" layoutY="380.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="E" />
+                        <Button fx:id="slot28" layoutX="470.0" layoutY="380.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="E" />
+                        <Button fx:id="slot27" layoutX="430.0" layoutY="380.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="E" />
+                        <Button fx:id="slot26" layoutX="390.0" layoutY="380.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="E" />
+                        <Button fx:id="slot25" layoutX="350.0" layoutY="380.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="E" />
+                        <Button fx:id="slot24" layoutX="310.0" layoutY="380.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="E" />
+                        <Button fx:id="slot23" layoutX="270.0" layoutY="380.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="E" />
+                        <Button fx:id="slot22" layoutX="230.0" layoutY="380.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="E" />
+                        <Button fx:id="slot21" layoutX="190.0" layoutY="380.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="E" />
+                        <Button fx:id="slot20" layoutX="150.0" layoutY="380.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="E" />
+                        <Button fx:id="slot19" layoutX="510.0" layoutY="340.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="E" />
+                        <Button fx:id="slot18" layoutX="470.0" layoutY="340.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="E" />
+                        <Button fx:id="slot17" layoutX="430.0" layoutY="340.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="E" />
+                        <Button fx:id="slot16" layoutX="390.0" layoutY="340.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="E" />
+                        <Button fx:id="slot15" layoutX="350.0" layoutY="340.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="E" />
+                        <Button fx:id="slot14" layoutX="310.0" layoutY="340.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="E" />
+                        <Button fx:id="slot13" layoutX="270.0" layoutY="340.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="E" />
+                        <Button fx:id="slot12" layoutX="230.0" layoutY="340.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="E" />
+                        <Button fx:id="slot11" layoutX="190.0" layoutY="340.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="E" />
+                        <Button fx:id="slot10" layoutX="150.0" layoutY="340.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="E" />
+                        <Button fx:id="slot9" layoutX="510.0" layoutY="300.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="E" />
+                        <Button fx:id="slot8" layoutX="470.0" layoutY="300.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="E" />
+                        <Button fx:id="slot7" layoutX="430.0" layoutY="300.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="E" />
+                        <Button fx:id="slot6" layoutX="390.0" layoutY="300.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="E" />
+                        <Button fx:id="slot5" layoutX="350.0" layoutY="300.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="E" />
+                        <Button fx:id="slot4" layoutX="310.0" layoutY="300.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="E" />
+                        <Button fx:id="slot3" layoutX="270.0" layoutY="300.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="E" />
+                        <Button fx:id="slot2" layoutX="230.0" layoutY="300.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="E" />
+                        <Button fx:id="slot0" layoutX="150.0" layoutY="300.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="E" />
+                        <Button fx:id="slotWeapon" layoutX="250.0" layoutY="200.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="W" />
+                        <Button fx:id="slotArmor" layoutX="330.0" layoutY="200.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="A" />
+                        <Button fx:id="slotConsumable" layoutX="410.0" layoutY="200.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="C" />
                         <Button fx:id="moveItem" layoutX="605.0" layoutY="308.0" mnemonicParsing="false" text="Move Item" />
                         <Button fx:id="inpectItem" layoutX="605.0" layoutY="348.0" mnemonicParsing="false" text="Inspect" />
-                        <GridPane fx:id="inventoryPane" layoutX="132.0" layoutY="276.0" prefHeight="133.0" prefWidth="163.0">
-                          <columnConstraints>
-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                          </columnConstraints>
-                          <rowConstraints>
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                          </rowConstraints>
-                        </GridPane>
                      </children>
                   </AnchorPane>
               </content>

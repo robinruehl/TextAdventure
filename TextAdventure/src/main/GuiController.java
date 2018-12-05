@@ -7,17 +7,13 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TitledPane;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
+import main.Fights.Fights;
+import main.Game.Game;
 
 public class GuiController {
-	Labyrinth labyrinth;
+	Game game;
 	
-	@FXML 
-	private GridPane inventoryPane;
-	
-	
-
 	@FXML
     private AnchorPane main;
 	
@@ -57,36 +53,29 @@ public class GuiController {
     boolean scrollbarListener = false;
     
 	public void initialize() {
-		labyrinth = new Labyrinth(this);
-		for (int i=1 ; i<=4 ; i++) {
-			for (int  p=1 ; p<=10 ; p++) {
-			Button button = new Button();
-			inventoryPane.add(button , p , i);
-			button.setOnAction(null);	
-			}
-		}
+		
+		game = new Game(this);
 	}
-
 	
 	public void setDiscription(Room room) {
 		consoleWrite(room.getDescprition());
 	}
 	
 	public void goEast() {
-		labyrinth.changeRoom(labyrinth.getCurrentRoom().getEastRoom());
+		game.getLabyrinth().changeRoom(game.getLabyrinth().getCurrentRoom().getEastRoom());
 	}
 	
 	public void goSouth() {
-		labyrinth.changeRoom(labyrinth.getCurrentRoom().getSouthRoom());
+		game.getLabyrinth().changeRoom(game.getLabyrinth().getCurrentRoom().getSouthRoom());
 	}
 	
 	public void goWest() { 
-		labyrinth.changeRoom(labyrinth.getCurrentRoom().getWestRoom());
+		game.getLabyrinth().changeRoom(game.getLabyrinth().getCurrentRoom().getWestRoom());
 
 	}
 	
 	public void goNorth() {
-		labyrinth.changeRoom(labyrinth.getCurrentRoom().getNorthRoom());
+		game.getLabyrinth().changeRoom(game.getLabyrinth().getCurrentRoom().getNorthRoom());
 
 	}
 	
@@ -130,9 +119,25 @@ public class GuiController {
 		}
 	}
 	
-	private void inputHandler(String inputTXT)
+	private void inputHandler(String i)
 	{
-		
+		//test
+		if(i.contains("test"))
+		{
+			if(i.contains("Fights"))
+			{
+				Fights f = new Fights(this, game.getLabyrinth().getCurrentRoom());
+				f.Fight();
+			}
+		}
+		//fights
+		if(i.contains("fight"))
+		{
+			if(i.contains("attack1"))
+			{
+				
+			}
+		}
 	}
 
 	public Button getButtonEast() {
