@@ -9,21 +9,20 @@ public class Labyrinth {
 	private Room centralRoom;
 	
 	private Room currentRoom;
+	private Room previousRoom;
+	private Room newRoom;
 	
-	
+	private int x=0;
+	private int y=0;
 	private GuiController guiController;
 	
 	private List<Room> dungeon = new ArrayList<>();
 	
 	
-	private Random random = new Random();
 	
-	
-	private void Door() {
-		if random < 7 ) {
-			newRoom = new Room("Neuer Raum!!!", null, null, null, null, x++, y++);
-		}
-	}
+	//private Random random = new Random();
+	//
+	//System.out.println(random.nextInt(10));
 	
 	
 	
@@ -31,18 +30,43 @@ public class Labyrinth {
 		this.guiController = guiController;
 		
 		
-		System.out.println(random.nextInt(10));
 		
 		
 		
+		newRoom = new Room("w",null,null,null,null,x,y);
 		
-		centralRoom = new Room("Als dudurch die Tür kommst, siehst du einen weiteren leeren und mit Fackeln mäßig erhellten  Raum. Vier  Türen befinden sich an den Wänden.", null, null, null, null, 0, 0);
+		dungeon.add(newRoom);
+		
+		previousRoom=newRoom;
+		
+		newRoom = new Room("w",null,null,null,null,x,y);
 		
 		
-		centralRoom.setWest(startRoom);
+		System.out.println(dungeon);
 		
-		changeRoom(centralRoom);
 	}
+	
+	private void doorEastControl() {
+		for (Room pRoom : dungeon) {
+			if (pRoom.getX() == x++ && pRoom.getY() == y) {//überprüfen ob ein raum auf den koordinaten liegt
+				newRoom.setEast(pRoom);
+				pRoom.setWest(newRoom);//raume verbinden
+			}
+			
+		}
+		
+		previousRoom.getX();
+		x++;
+		newRoom.setX(x);;
+		
+		
+			
+			
+		
+		
+		
+	}
+	
 	
 	public void changeRoom(Room room) {
 		currentRoom = room;
