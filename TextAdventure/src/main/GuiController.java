@@ -7,12 +7,17 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TitledPane;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
-import main.Fights.Fights;
 
 public class GuiController {
 	Labyrinth labyrinth;
 	
+	@FXML 
+	private GridPane inventoryPane;
+	
+	
+
 	@FXML
     private AnchorPane main;
 	
@@ -53,7 +58,15 @@ public class GuiController {
     
 	public void initialize() {
 		labyrinth = new Labyrinth(this);
+		for (int i=1 ; i<=4 ; i++) {
+			for (int  p=1 ; p<=10 ; p++) {
+			Button button = new Button();
+			inventoryPane.add(button , p , i);
+			button.setOnAction(null);	
+			}
+		}
 	}
+
 	
 	public void setDiscription(Room room) {
 		consoleWrite(room.getDescprition());
@@ -117,25 +130,9 @@ public class GuiController {
 		}
 	}
 	
-	private void inputHandler(String i)
+	private void inputHandler(String inputTXT)
 	{
-		//test
-		if(i.contains("test"))
-		{
-			if(i.contains("Fights"))
-			{
-				Fights f = new Fights(this, labyrinth.getCurrentRoom());
-				f.Fight();
-			}
-		}
-		//fights
-		if(i.contains("fight"))
-		{
-			if(i.contains("attack1"))
-			{
-				
-			}
-		}
+		
 	}
 
 	public Button getButtonEast() {
