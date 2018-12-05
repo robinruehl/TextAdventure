@@ -12,7 +12,7 @@ public class PC extends C {
 	private float healthPotsHeal;
 	private int healthPotDropChance = 50; //in %
 	
-	PC() {
+	public PC() {
 		this.luck = 10;
 		this.money = 0;
 		this.health = 100;
