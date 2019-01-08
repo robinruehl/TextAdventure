@@ -4,6 +4,8 @@ import java.util.Random;
 
 import main.GuiController;
 import main.Room;
+import main.Game.Abillity;
+import main.Game.Game;
 import main.c.PC;
 import main.c.NPC;
 
@@ -11,44 +13,44 @@ public class Fights {
 	
 	private boolean yourTurn = false;
 	private Random rand = new Random();
-	
+	private Game game;
 	private Room Room;
 	private GuiController GUI;
 	private NPC enemy;
-	private PC player;
-	
+	private int turn;
+	private Abillity abillity1;
 	private int attack1 = 1;
 	private int attack2 = 1;
 	
 	
-	public Fights(GuiController GUI, Room Room)
+	public Fights(GuiController GUI, Room Room,Game game)
 	{
 		this.GUI = GUI;
 		this.Room = Room;
+		this.game = game;
 	}
 	
 	public void attack1()
 	{
-		if (attack1==1)
+		if(yourTurn==true)
 		{
-			slash();
-		}
-		else
-		{
-			slash();
+			dmgcalc(abillity1);
 		}
 	}
 	
 	public void attack2()
 	{
-		if (attack2==1)
+		if(yourTurn==true)
 		{
-			slash();
-		}
-		else
-		{
-			slash();
-		}
+			if (attack2==1)
+			{
+				slash();
+			}
+			else
+			{
+				slash();
+			}
+		}	
 	}
 	/*
 	public void isFight(Room Room) {
@@ -71,13 +73,14 @@ public class Fights {
 		System.out.println("fights");
 	}
 	
-	private void slash() {
+	private void dmgcalc(Abillity a)
+	{
 		yourTurn = false;
-    	System.out.println("slash");
+    	System.out.println(a.getName());
     	int acc = rand.nextInt(100);
     	GUI.consoleWrite("Du würfelst " + acc);
-    	if (player.getHitChance() >= acc) {
-        	int temp = player.getAttackDamage();
+    	if (game.getPlayer().getHitChance() >= acc) {
+        	int temp = a.getDamage();
         	enemy.setHealth(enemy.getHealth()-temp);
         	GUI.consoleWrite("Du triffst " + enemy.getName() + " für " + temp + " Schaden und " + enemy.getName() + " hat noch " + enemy.getHealth() + " Leben!");
     	}
@@ -88,8 +91,34 @@ public class Fights {
     	acc = rand.nextInt(100);
     	if (enemy.getAccuracy() >= acc) {
     		int temp = rand.nextInt(enemy.getAttackDamage()/2)+enemy.getAttackDamage()/2;
-    		player.setHealth(player.getHealth()-temp);
-    		GUI.consoleWrite("Der Gegner trifft dich für " + temp + " Schaden und du hast noch " + player.getHealth() + " Leben!");
+    		game.getPlayer().setHealth(game.getPlayer().getHealth()-temp);
+    		GUI.consoleWrite("Der Gegner trifft dich für " + temp + " Schaden und du hast noch " + game.getPlayer().getHealth() + " Leben!");
+    	}
+    	else {
+    		GUI.consoleWrite("Der Gegner hat dich verfehlt!");
+    	}
+    	checkFight();
+	}
+	
+	private void slash() {
+		yourTurn = false;
+    	System.out.println("slash");
+    	int acc = rand.nextInt(100);
+    	GUI.consoleWrite("Du würfelst " + acc);
+    	if (game.getPlayer().getHitChance() >= acc) {
+        	int temp = game.getPlayer().getAttackDamage();
+        	enemy.setHealth(enemy.getHealth()-temp);
+        	GUI.consoleWrite("Du triffst " + enemy.getName() + " für " + temp + " Schaden und " + enemy.getName() + " hat noch " + enemy.getHealth() + " Leben!");
+    	}
+    	else {
+    		GUI.consoleWrite("Du hast den Gegner verfehlt!");
+    	}
+    	
+    	acc = rand.nextInt(100);
+    	if (enemy.getAccuracy() >= acc) {
+    		int temp = rand.nextInt(enemy.getAttackDamage()/2)+enemy.getAttackDamage()/2;
+    		game.getPlayer().setHealth(game.getPlayer().getHealth()-temp);
+    		GUI.consoleWrite("Der Gegner trifft dich für " + temp + " Schaden und du hast noch " + game.getPlayer().getHealth() + " Leben!");
     	}
     	else {
     		GUI.consoleWrite("Der Gegner hat dich verfehlt!");
@@ -98,11 +127,13 @@ public class Fights {
     }
 	
     public void checkFight() {
-		if (player.getHealth()<=0) {
+		if (game.getPlayer().getHealth()<=0) {
 			System.out.println("you ded");
+			GUI.consoleWrite("Du bist gestorben!");
 		}
 		else if (enemy.getHealth()<=0) {
 			System.out.println("enemy ded");
+			GUI.consoleWrite("Der Gegner ist gestorben!");
 		}
 		else {
 			encounter();
@@ -111,16 +142,17 @@ public class Fights {
     
     public void testFight()
     {
-    	enemy = new NPC(player);
-    	player = new PC();
+    	turn = 0;
+    	enemy = new NPC(game.getPlayer());
     	encounter();
     }
     
 	private void encounter() {
+		turn++;
 		GUI.consoleWrite("----------------------------------------------");
 		GUI.consoleWrite(" Gegner " + enemy.getName());
 		GUI.consoleWrite("----------------------------------------------");
-		GUI.consoleWrite("\t Spieler Lebenspunkte: " + player.getHealth());
+		GUI.consoleWrite("\t Spieler Lebenspunkte: " + game.getPlayer().getHealth());
 		GUI.consoleWrite("\t Gegner Lebenspunkte: " + enemy.getHealth());
 		GUI.consoleWrite("\t Was willst du machen? \n");
 		GUI.consoleWrite("\t fight attack1, fight attack2");
@@ -136,4 +168,21 @@ public class Fights {
 		}
 		
 	}*/
+
+	public int getTurn() {
+		return turn;
+	}
+	
+	public void setAbillity1(Abillity a)
+	{
+		if(game.getPlayer().getIntelligence()>=a.getReqInt() & game.getPlayer().getLevel()>=a.getReqLevel() & game.getPlayer().getLuck()>=a.getReqLuck())
+		{
+			this.abillity1 = a;
+		}
+		else
+		{
+			GUI.consoleWrite("Fähigkeit kann nicht verwendet werden");
+		}
+	}
 }
+

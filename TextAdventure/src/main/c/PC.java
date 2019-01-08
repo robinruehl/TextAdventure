@@ -2,6 +2,8 @@ package main.c;
 
 import java.util.Random;
 
+import main.Game.Skills;
+
 public class PC extends C {
 	private Random rand = new Random();
 	private float money;
@@ -11,6 +13,7 @@ public class PC extends C {
 	private int perkpoints;
 	private float healthPotsHeal;
 	private int healthPotDropChance = 50; //in %
+	private Skills skills;
 	
 	public PC() {
 		this.luck = 10;
@@ -25,6 +28,7 @@ public class PC extends C {
 		this.level = 1;
 		this.perkpoints = 25;
 		this.healthPotsHeal  = 8;
+		this.skills = new Skills();
 		}
 	 
 	 
@@ -143,4 +147,11 @@ public class PC extends C {
 	{
 		this.healthPotDropChance = healthPotDropChance;
 	}
+
+
+	public Skills getSkills() {
+		return skills;
+	}
+	
+	
 }
