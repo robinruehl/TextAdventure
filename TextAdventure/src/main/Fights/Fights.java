@@ -66,7 +66,8 @@ public class Fights {
 	*/
 	
 	public void Fight() {
-		encounter();
+		testFight();
+		//encounter();
 		System.out.println("fights");
 	}
 	
@@ -108,13 +109,21 @@ public class Fights {
 		}
 	}
     
+    public void testFight()
+    {
+    	enemy = new NPC(player);
+    	player = new PC();
+    	encounter();
+    }
+    
 	private void encounter() {
 		GUI.consoleWrite("----------------------------------------------");
-		GUI.consoleWrite(" Gegner ");
+		GUI.consoleWrite(" Gegner " + enemy.getName());
 		GUI.consoleWrite("----------------------------------------------");
-		GUI.consoleWrite("\t Spieler Lebenspunkte: ");
-		GUI.consoleWrite("\t Gegner Lebenspunkte: ");
+		GUI.consoleWrite("\t Spieler Lebenspunkte: " + player.getHealth());
+		GUI.consoleWrite("\t Gegner Lebenspunkte: " + enemy.getHealth());
 		GUI.consoleWrite("\t Was willst du machen? \n");
+		GUI.consoleWrite("\t fight attack1, fight attack2");
 		yourTurn = true;
 	}
 	/*
