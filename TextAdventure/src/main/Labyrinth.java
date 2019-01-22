@@ -22,10 +22,12 @@ public class Labyrinth {
 		centralRoom.setNorth(northRoom);
 		centralRoom.setSouth(southRoom);
 		centralRoom.setWest(startRoom);
-		
-		changeRoom(startRoom);
 	}
 	
+	public Room getStartRoom() {
+		return startRoom;
+	}
+
 	public void changeRoom(Room room) {
 		currentRoom = room;
 		guiController.setDiscription(currentRoom);
