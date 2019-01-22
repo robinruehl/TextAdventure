@@ -17,16 +17,16 @@ public class Weapons extends Items{
 	Weapons(int Type)
 	{
 		if (Type==1) {
-			this.Attack  = 5;
-			this.Accuracy = 15;
+			this.Attack  = r.nextInt(10)+5;
+			this.Luck = r.nextInt(10)+15;
 		}
 		if (Type==2) {
-			this.Attack = 10;
-			this.Accuracy = 10;
+			this.Attack = r.nextInt(10)+10;
+			this.Luck = r.nextInt(10)+10;
 		}
 		if (Type==3) {
-			this.Attack = 15;
-			this.Accuracy = 5;
+			this.Attack = r.nextInt(10)+15;
+			this.Luck = r.nextInt(10)+5;
 		}
 	}
 

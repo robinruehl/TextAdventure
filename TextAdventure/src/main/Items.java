@@ -1,8 +1,10 @@
 package application;
 
+import java.util.Random;
+
 public class Items {
 	protected int ID;
 	protected String Name;
-	protected int Accuracy;
-
+	protected int Luck;
+	Random r = new Random();
 }
