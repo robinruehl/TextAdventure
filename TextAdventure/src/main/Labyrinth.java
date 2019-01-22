@@ -1,4 +1,4 @@
-package main;
+ package main;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,13 +18,26 @@ public class Labyrinth {
 	
 	private List<Room> dungeon = new ArrayList<>();
 	
+	private Random r = new Random();
+	private int Chance =50;
 	
 	
+	private boolean Luck() {
+		if (r.nextInt(100) >= Chance) {
+			return false;
+		}
+		else {
+			return true;
+		}
+			
+	}
 	//private Random random = new Random();
 	//
 	//System.out.println(random.nextInt(10));
 	
+	//maikymaus zieht sein höschen aus!!!
 	
+	// 
 	
 	public Labyrinth(GuiController guiController) {
 		this.guiController = guiController;
@@ -37,35 +50,118 @@ public class Labyrinth {
 		
 		dungeon.add(newRoom);
 		
-		previousRoom=newRoom;
+		//previousRoom=newRoom;
+		//doorAufruf();
+		//newRoom = new Room("f",null,null,null,null,x,y);
+		doorEastControl();
 		
-		newRoom = new Room("w",null,null,null,null,x,y);
+		System.out.println(dungeon.toString());
 		
-		
-		System.out.println(dungeon);
-		
+		changeRoom(newRoom);
 	}
+	//private void doorAufruf(){
+		//doorEastControl();
+	//}
 	
 	private void doorEastControl() {
+		if(Luck()==true){
 		for (Room pRoom : dungeon) {
 			if (pRoom.getX() == x++ && pRoom.getY() == y) {//überprüfen ob ein raum auf den koordinaten liegt
+				newRoom.setWest(pRoom);
+				pRoom.setEast(newRoom);//rÄume verbinden
+			}
+			else {
+				previousRoom=newRoom;
+				
+				previousRoom.getX();
+				x++;
+				newRoom.setX(x);;
+				
+				newRoom = new Room("f",null,null,null,null,x,y);
+				dungeon.add(newRoom);
+				
+				newRoom.setWest(pRoom);
+				pRoom.setEast(newRoom);
+				
+			}
+		}
+	}
+		doorSouthControl();
+	}
+	private void doorSouthControl() {
+		if(Luck()==true){
+		for (Room pRoom : dungeon) {
+			if (pRoom.getX() == x && pRoom.getY() == y--) {//überprüfen ob ein raum auf den koordinaten liegt
+				newRoom.setNorth(pRoom);
+				pRoom.setSouth(newRoom);//raume verbinden
+			}
+			else {
+				previousRoom=newRoom;
+				
+				previousRoom.getY();
+				y--;
+				newRoom.setY(y);;
+				
+				newRoom = new Room("f",null,null,null,null,x,y);
+				dungeon.add(newRoom);
+				
+				newRoom.setNorth(pRoom);
+				pRoom.setSouth(newRoom);
+			}
+		}
+		}
+		doorWestControl();
+	}
+	private void doorWestControl() {
+		if(Luck()==true){
+		for (Room pRoom : dungeon) {
+			if (pRoom.getX() == x-- && pRoom.getY() == y) {//überprüfen ob ein raum auf den koordinaten liegt
 				newRoom.setEast(pRoom);
 				pRoom.setWest(newRoom);//raume verbinden
 			}
+			else {
+			previousRoom=newRoom;
 			
+			
+			previousRoom.getX();
+			x--;
+			newRoom.setX(x);;
+			
+			newRoom = new Room("f",null,null,null,null,x,y);
+			dungeon.add(newRoom);
+			
+			newRoom.setEast(pRoom);
+			pRoom.setWest(newRoom);
+			}
 		}
-		
-		previousRoom.getX();
-		x++;
-		newRoom.setX(x);;
-		
-		
-			
-			
-		
-		
-		
+		doorNorthControl();
 	}
+	}
+	private void doorNorthControl() {
+		if(Luck()==true){
+		for (Room pRoom : dungeon) {
+			if (pRoom.getX() == x && pRoom.getY() == y++) {//überprüfen ob ein raum auf den koordinaten liegt
+				newRoom.setSouth(pRoom);
+				pRoom.setNorth(newRoom);//raume verbinden
+			}
+			else {
+				previousRoom=newRoom;
+				
+				previousRoom.getY();
+				y++;
+				newRoom.setY(y);;
+				
+				newRoom = new Room("f",null,null,null,null,x,y);
+				dungeon.add(newRoom);
+				
+				newRoom.setSouth(pRoom);
+				pRoom.setNorth(newRoom);
+			}
+		}
+		}
+		//doorEastControl();
+	}
+	
 	
 	
 	public void changeRoom(Room room) {
